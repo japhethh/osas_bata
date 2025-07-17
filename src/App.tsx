@@ -1,3 +1,5 @@
+import Congratulation from "./components/Congratulation";
+import Form from "./components/form/Form";
 import Forms from "./components/form/Form";
 import Home from "./components/home/Home";
 import { Route, Routes } from "react-router-dom";
@@ -9,6 +11,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/form" element={<Forms />} />
+          <Route path="/congratulation" element={<Congratulation />} />
         </Routes>
       </div>
     </div>

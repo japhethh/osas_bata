@@ -3,6 +3,7 @@
 import { useState } from "react";
 import TopWinner from "./TopWinner";
 import Hello from "./Hello";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const [showModal, setShowModal] = useState(false);
@@ -438,7 +439,7 @@ const GamingRegistrationForm = ({ onNext, onClose }) => {
         <div
           style={{
             height: "500px",
-            minHeight: "400px",
+            minHeight: "600px",
             padding: "16px",
             background: "#1e40af",
           }}
@@ -700,7 +701,7 @@ const SocialMediaStep = ({ onClose }) => {
               onClick={() =>
                 handleSocialAction(
                   "facebookPage",
-                  "https://facebook.com/peryaplay"
+                  "https://www.facebook.com/peryaplayofficial?mibextid=wwXIfr&rdid=51af6cqrCdpAEf2M&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Yq1aF74x6%2F%3Fmibextid%3DwwXIfr#"
                 )
               }
               style={{
@@ -762,7 +763,7 @@ const SocialMediaStep = ({ onClose }) => {
               onClick={() =>
                 handleSocialAction(
                   "facebookGroup",
-                  "https://facebook.com/groups/peryagang"
+                  "https://www.facebook.com/groups/peryaplaycommunity/?ref=share&mibextid=wwXIfr&rdid=Teo8gg09v3mgvbMl&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fg%2F16h1n2w5he%2F%3Fmibextid%3DwwXIfr#"
                 )
               }
               style={{
@@ -824,7 +825,7 @@ const SocialMediaStep = ({ onClose }) => {
               onClick={() =>
                 handleSocialAction(
                   "facebookChannel",
-                  "https://facebook.com/peryaplaychannel"
+                  "https://www.facebook.com/perya.play.2024?mibextid=wwXIfr&rdid=82xYYJfBrmQuhbnx&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Ckj3vka3a%2F%3Fmibextid%3DwwXIfr#"
                 )
               }
               style={{
@@ -846,17 +847,10 @@ const SocialMediaStep = ({ onClose }) => {
           </div>
         </div>
 
-        <div className="flex relative overflow-hidden h-[680px] w-full justify-between items-center gap-4">
-          <img
-            src="/assets/osas-taba.svg"
-            alt="img"
-            className="absolute -left-20 top-5"
-          />
-          <img
-            src="/assets/claim-reward.svg"
-            alt="img"
-            className="absolute right-0 top-5"
-          />
+        <div className="flex  w-full justify-center py-5 items-center gap-4">
+          <Link to="/congratulation">
+            <img src="/assets/claim-reward.svg" alt="img" className=" " />
+          </Link>
         </div>
       </div>
     </div>
