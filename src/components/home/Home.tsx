@@ -224,12 +224,25 @@ const RegistrationForm = ({ onNext }) => {
   };
 
   const handleNext = () => {
-    console.log("Form data:", formData);
-    if (formData.fullName && formData.email && formData.contactNo) {
-      onNext();
-    } else {
-      alert("Please fill in all fields");
+    const { fullName, email, contactNo } = formData;
+    // Full name: at least 2 words
+    if (!fullName.trim() || fullName.trim().split(' ').length < 2) {
+      alert("Please enter your full name (at least 2 words).");
+      return;
     }
+    // Email: basic regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.trim() || !emailRegex.test(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+    // Contact No: PH mobile, starts with 09, at least 12 digits
+    const contactRegex = /^09\d{10,}$/;
+    if (!contactNo.trim() || !contactRegex.test(contactNo)) {
+      alert("Please enter a valid Philippine mobile number (at least 12 digits, e.g. 091234567890).");
+      return;
+    }
+    onNext();
   };
 
   return (
