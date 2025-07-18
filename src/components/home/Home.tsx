@@ -236,10 +236,10 @@ const RegistrationForm = ({ onNext }) => {
       alert("Please enter a valid email address.");
       return;
     }
-    // Contact No: PH mobile, starts with 09, at least 12 digits
-    const contactRegex = /^09\d{10,}$/;
+    // Contact No: PH mobile, starts with 09, at least 11 digits
+    const contactRegex = /^09\d{9,}$/;
     if (!contactNo.trim() || !contactRegex.test(contactNo)) {
-      alert("Please enter a valid Philippine mobile number (at least 12 digits, e.g. 091234567890).");
+      alert("Please enter a valid Philippine mobile number (at least 11 digits, e.g. 09123456789).");
       return;
     }
     onNext();
