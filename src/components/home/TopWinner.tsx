@@ -60,7 +60,7 @@ const users: User[] = [
 
 const TopWinner = () => {
   return (
-    <div className="w-full min-h-[500px] mt-30">
+    <div className="w-full min-h-[500px] mt-30 px-4">
       <h1 className="text-center font-medium text-lg text-white mb-4">Top Winners</h1>
       <div className="flex justify-center items-center px-4">
         <img src="/assets/top-winner.svg" alt="Image" />

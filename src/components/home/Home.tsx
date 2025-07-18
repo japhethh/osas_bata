@@ -33,8 +33,8 @@ const Hero = () => {
   return (
     <>
       {/* Hero Section */}
-      <div className="min-h-screen bg-repeat-y bg-top bg-[url('/assets/background-01.svg')]">
-        <div className="flex justify-center items-center">
+      <div className="min-h-screen bg-repeat-y bg-top bg-[url('/assets/background-03.svg')] ">
+        <div className="flex justify-center items-center px-4">
           <div className="flex flex-col items-center translate-y-18">
             <div>
               <img src="/assets/hero-pepegang.svg" alt="Hero" />
@@ -56,6 +56,7 @@ const Hero = () => {
       {/* Initial Registration Modal */}
       {showModal && (
         <div
+          className=""
           style={{
             position: "fixed",
             top: 0,
@@ -232,7 +233,10 @@ const RegistrationForm = ({ onNext }) => {
   };
 
   return (
-    <div style={{ height: "100%", display: "flex", flexDirection: "column" }}>
+    <div
+      className="px-2"
+      style={{ height: "100%", display: "flex", flexDirection: "column" }}
+    >
       <div
         className="flex justify-center items-center"
         style={{ marginBottom: "32px" }}
@@ -240,6 +244,18 @@ const RegistrationForm = ({ onNext }) => {
         <img src="/assets/hero-pepegang.svg" alt="image" />
       </div>
 
+      <h2
+        className="-translate-y-5 text-center"
+        style={{
+          color: "#fbbf24",
+          fontSize: "18px",
+
+          margin: "0 0 8px 0",
+        }}
+      >
+        <span className="font-bold">Step 1:</span>{" "}
+        <span className="text-white">Raffle & Rewards Registration.</span>
+      </h2>
       <div
         style={{
           display: "flex",
@@ -395,7 +411,6 @@ const GamingRegistrationForm = ({ onNext, onClose }) => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            marginBottom: "16px",
           }}
         >
           <img
@@ -408,11 +423,12 @@ const GamingRegistrationForm = ({ onNext, onClose }) => {
           style={{
             color: "#fbbf24",
             fontSize: "18px",
-            fontWeight: "bold",
+
             margin: "0 0 8px 0",
           }}
         >
-          Step 2: Gaming Registration.
+          <span className="font-bold">Step 2:</span>{" "}
+          <span className="text-white">Gaming Registration.</span>
         </h2>
         <p
           style={{
@@ -421,7 +437,8 @@ const GamingRegistrationForm = ({ onNext, onClose }) => {
             margin: 0,
           }}
         >
-          Click the 'Register' button after filling up the form.
+          Click the <span className="font-bold">'Register'</span> button after
+          filling up the form.
         </p>
       </div>
 
@@ -437,10 +454,10 @@ const GamingRegistrationForm = ({ onNext, onClose }) => {
       >
         {/* Iframe Section */}
         <div
+          className="pb-2 px-2"
           style={{
-            height: "500px",
-            minHeight: "600px",
-            padding: "16px",
+            height: "450px",
+            minHeight: "360px",
             background: "#1e40af",
           }}
         >
@@ -471,38 +488,44 @@ const GamingRegistrationForm = ({ onNext, onClose }) => {
             alignItems: "center",
           }}
         >
-          <div style={{ marginBottom: "16px" }}>
-            <img
-              src="/assets/arrow-up-02.svg"
-              alt="arrow"
-              style={{ width: "32px", height: "32px" }}
-            />
+          <div className="-translate-y-5">
+            <div
+              className="flex justify-center items-center"
+              style={{ marginBottom: "16px" }}
+            >
+              <img
+                src="/assets/arrow-up-02.svg"
+                alt="arrow"
+                style={{ width: "32px", height: "32px" }}
+              />
+            </div>
+
+            <h1
+              style={{
+                fontSize: "18px",
+                fontWeight: "bold",
+                margin: "0 0 16px 0",
+              }}
+            >
+              Scroll Down
+            </h1>
+
+            <p
+              className="italic text-xs"
+              style={{
+                fontSize: "14px",
+                margin: "0 0 32px 0",
+                lineHeight: "1.5",
+              }}
+            >
+              <span className="font-bold">Note:</span> Please make sure to fill
+              up the form before clicking the 'Next' button.
+            </p>
           </div>
-
-          <h1
-            style={{
-              fontSize: "18px",
-              fontWeight: "bold",
-              margin: "0 0 16px 0",
-            }}
-          >
-            Scroll Down
-          </h1>
-
-          <p
-            style={{
-              fontSize: "14px",
-              fontWeight: "600",
-              margin: "0 0 32px 0",
-              lineHeight: "1.5",
-            }}
-          >
-            Note: Please make sure to fill up the form before clicking the
-            'Next' button.
-          </p>
 
           {/* Next Button - Now works without validation */}
           <div
+            className="-translate-y-5"
             onClick={handleRegister}
             style={{
               cursor: "pointer",
@@ -632,11 +655,11 @@ const SocialMediaStep = ({ onClose }) => {
             style={{
               color: "#fbbf24",
               fontSize: "20px",
-              fontWeight: "bold",
               margin: "0 0 16px 0",
             }}
           >
-            Step 3: Follow our SocMed Accounts.
+            <span className="font-bold">Step 3:</span>
+            <span className="text-white"> Follow our SocMed Accounts.</span>
           </h2>
 
           <p
@@ -847,10 +870,40 @@ const SocialMediaStep = ({ onClose }) => {
           </div>
         </div>
 
-        <div className="flex  w-full justify-center py-5 items-center gap-4">
-          <Link to="/congratulation">
-            <img src="/assets/claim-reward.svg" alt="img" className=" " />
-          </Link>
+        <div>
+          <p className="text-center italic text-xs text-white -translate-y-6">
+            Note: Follow the steps above first to unlock claim button
+          </p>
+        </div>
+
+        <div className="flex w-full justify-center py-5 items-center gap-4 -translate-y-5">
+          {Object.values(completedActions).every(Boolean) ? (
+            <Link to="/congratulation">
+              <img
+                src="/assets/claim-reward.svg"
+                alt="img"
+                className="cursor-pointer"
+              />
+            </Link>
+          ) : (
+            <button
+              onClick={handleClaimRewards}
+              style={{
+                background: "none",
+                border: "none",
+                padding: 0,
+                cursor: "not-allowed",
+                opacity: 0.5,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+              disabled
+              title="Complete all steps to claim your reward"
+            >
+              <img src="/assets/claim-reward.svg" alt="img" />
+            </button>
+          )}
         </div>
       </div>
     </div>

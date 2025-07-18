@@ -1,12 +1,11 @@
 import Congratulation from "./components/Congratulation";
-import Form from "./components/form/Form";
 import Forms from "./components/form/Form";
 import Home from "./components/home/Home";
 import { Route, Routes } from "react-router-dom";
 
 const App = () => {
   return (
-    <div className="max-w-[420px] relative mx-auto px-4">
+    <div className="max-w-[520px] relative mx-auto">
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
